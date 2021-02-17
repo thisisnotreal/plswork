@@ -1,0 +1,273 @@
+
+p {
+     color: purple; 
+     /* text color*/
+     opacity: .5;
+     /*makes things transparent, 0 being 
+     transparent. scale 0-1
+     */
+     text-transform: capitalize;
+     /*specify text-form*/
+     font-weight: 200;
+     /*how bold shit is*/
+     line-height: 10px;
+     /*how far vertically the lines are spaced*/
+}
+
+img{
+    width: 100px;
+    height: 100px;
+    /*heigth and width stuff */
+    border-color:rgb(86, 86, 167);
+    border-width: 5px;
+    border-style: solid;
+    border-radius: 20% 20% 40% 40%;
+    /*border stuff*/
+    transform: scale(1);
+    /* makes things bigger */
+}
+
+img:hover{
+    transform: scale(1.1);
+}
+body{
+    margin: 0px;
+    background: url(https://cdn-media-1.freecodecamp.org/imgr/MJAkxbh.png);
+}
+.paragraph-class /*this a class*/{
+    color: rgb(86, 86, 167); /*text color*/
+    font-size : 30px; /*font size*/
+    font-family: 'Lexend Mega', sans-serif; /*font family*/
+    text-align: left; /*putting text to right, middle or left of page */
+    background-color: red; /*changes background color*/
+}
+
+.div1{ /* this is a class*/
+    background-color:rgb(86, 86, 167);
+}
+
+#div2{ /* this is id, id should be unique*/
+    background-color: blue;
+}
+
+.out{
+    background-color: yellow;
+}
+
+.in1{
+    background-color: red;
+    padding: 10em; /*padding, element to border*/
+    margin: 10em; /*distance away from other stuff*/
+}
+
+.in2{
+    background-color: blue;
+    display: block;
+    width: 50px;
+    height: 50px;
+    margin: auto;
+    position: relative;
+    bottom: 100px;
+}
+
+:root{ /*psuedo class for variables*/
+    --main-bg-color: brown;
+}
+.one{
+    color: white;
+    background-color: var(--main-bg-color, blue); /*how to use variables, with fallback(blue)*/
+}
+/* you can also override root variables in class*/
+
+/* 
+em and rem are relative units
+in and mm are not relative units
+*/
+
+/*
+media quries help with screensizes. 
+It adapts for things.
+*/
+
+@media (min-width: 600px) {
+    p {
+        font-size: 1.0rem;
+    }
+}
+
+@media (min-width: 800px){
+    p{
+        font-size: 1.0rem;
+        line-height: 1.5;
+    }
+}
+
+.box-shadow{
+    background-color: cyan;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-shadow: 0px 0px 20px 0px black;
+    /*box shadow inputs: x offset, y offset, blur radius, 
+    spread radius, and color.
+    */
+    position: relative;
+    /* relative preserves the "ghost" of the element while moving it.
+    It also moves it relative to where it was initially.*/
+
+    /*absolute does not preserve the ghost of the element. 
+    It moves it relative to its parent. */
+    bottom: 0px;
+
+    float: right;
+    /* floats stuff left or right. text will adjust to floating stuff
+    it also makes stuff inline I guess*/
+
+    z-index: 10;
+    /* if stuff overlaps, the z index will show who goes on top. */
+
+    display: block;
+    /* block is block, inline is inline, inline-block you can specify 
+    width and height.*/
+    margin-left: 20px;
+}
+
+.z-indexer{
+    float: right;
+    background-color: pink;
+    position: relative;
+    z-index: 9;
+}
+.hover-test:hover{
+    color:rgb(86, 86, 167);
+    /*this is the first psuedo class. Pseudo classes 
+    can be added to selectors to make stuff more specific. 
+    hover makes stuff hover cool.*/
+}
+
+.marginer{
+    background-color: pink;
+    height: 100px;
+    width: 100px;
+    margin: auto;
+    display: block;
+    margin: auto;
+}
+
+.linear-grad{
+    height: 200px;
+    width: 100px;
+    display: inline-block;
+    margin: auto;
+    background: linear-gradient(90deg, red, white, blue)
+    /*this a linear gradiant*/
+}
+
+.parent{
+    background: black;
+    height: 400px;
+    width: 400px;
+}
+
+.child{
+    background-color: white;
+    height: 200px;
+    width: 200px;
+    transition: 1s linear;
+    /* neat lil hover transform*/
+}
+
+.parent:hover .child{
+    background-color: pink;
+    transform: translateX(100%);
+    /*part2 of hover transform */
+}
+
+.parents{
+    background: black;
+    height: 400px;
+    width: 400px;
+}
+
+.childs{
+    width: 200px;
+    height: 200px;
+    position: relative;
+    border-radius: 50%;
+    background: white;
+    animation: ltr 1s infinite;
+    /*
+    above does the following 3
+    animation-name: ltr;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    */
+}
+
+@keyframes ltr{
+    0%{
+        transform: translateY(0%);
+    }
+    50%{
+        transform: translateY(100%);
+        background-color:rgb(86, 86, 167);
+    }
+    100%{
+        transform: translateY(0%);
+        background-color: white;
+    }
+}
+
+.box{
+    background-color: black;
+    width: 400px;
+    height: 400px;
+    position: relative;
+    margin: auto;
+    transition: all;
+    /*
+    does all
+    transition-property: background,
+    border-radius, transform;
+    */
+
+    transition-duration: 1s;
+}
+
+.box:hover{
+    background: purple;
+    border-radius: 50%;
+    transform:rotateX(180deg);
+}
+
+.text{
+    text-align: center;
+    margin: 50px 100px 0px 100px;
+    position: relative;
+    animation: nice 3s linear forwards;
+}
+
+@keyframes nice{
+    0%{
+        left: -1000px;
+    }
+    100%{
+        left: 0px;
+    }
+}
+
+.boxe{
+    width: 100px;
+    height: 100px;
+    background-color: pink;
+    opacity: 50%;
+    transition: all;
+    transition-duration: .5s;
+}
+
+.boxe:hover{
+    transform: scale(1.4);
+    opacity: 100%;
+    position: relative;
+    margin: 0px 0px;
+}
+
